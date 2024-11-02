@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a36a6173f42d458ea1e38bdaf8ef19d5" Name="Diagram1">
+        <EntityTypeShape EntityType="User1212Model.ActivityMain" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.ActivityName" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.ActivityTimeRate" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.City" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.Country" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.Direction" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.Event" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.EventName" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.UserEvent" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.UserGender" Width="1.5" PointX="3.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.UserRole" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="User1212Model.Users" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="User1212Model.FK_ActivityMain_EventName" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityMain_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_ActivityMain" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_ActivityName" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users2" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users3" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users4" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_ActivityTimeRate_Users5" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Event_City" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Users_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Event_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Users_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Event_EventName" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Users_UserEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Users_UserGender" ManuallyRouted="false" />
+        <AssociationConnector Association="User1212Model.FK_Users_UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

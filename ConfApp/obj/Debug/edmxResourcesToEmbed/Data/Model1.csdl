@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="User1212Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityMain">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEventName" Type="Int32" Nullable="false" />
+    <Property Name="IdWinner" Type="Int32" Nullable="false" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CountOfDay" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EventName" Relationship="Self.FK_ActivityMain_EventName" FromRole="ActivityMain" ToRole="EventName" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_ActivityMain_Users" FromRole="ActivityMain" ToRole="Users" />
+    <NavigationProperty Name="ActivityTimeRate" Relationship="Self.FK_ActivityTimeRate_ActivityMain" FromRole="ActivityMain" ToRole="ActivityTimeRate" />
+  </EntityType>
+  <EntityType Name="ActivityName">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="NameActivity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ActivityTimeRate" Relationship="Self.FK_ActivityTimeRate_ActivityName" FromRole="ActivityName" ToRole="ActivityTimeRate" />
+  </EntityType>
+  <EntityType Name="ActivityTimeRate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdActivityMain" Type="Int32" Nullable="false" />
+    <Property Name="IdActivityName" Type="Int32" Nullable="false" />
+    <Property Name="IdModer" Type="Int32" Nullable="false" />
+    <Property Name="IdJury1" Type="Int32" Nullable="false" />
+    <Property Name="IdJury2" Type="Int32" />
+    <Property Name="IdJury3" Type="Int32" />
+    <Property Name="IdJury4" Type="Int32" />
+    <Property Name="IdJury5" Type="Int32" />
+    <Property Name="TimeStart" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="NumOfDay" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ActivityMain" Relationship="Self.FK_ActivityTimeRate_ActivityMain" FromRole="ActivityTimeRate" ToRole="ActivityMain" />
+    <NavigationProperty Name="ActivityName" Relationship="Self.FK_ActivityTimeRate_ActivityName" FromRole="ActivityTimeRate" ToRole="ActivityName" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_ActivityTimeRate_Users" FromRole="ActivityTimeRate" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.FK_ActivityTimeRate_Users1" FromRole="ActivityTimeRate" ToRole="Users" />
+    <NavigationProperty Name="Users2" Relationship="Self.FK_ActivityTimeRate_Users2" FromRole="ActivityTimeRate" ToRole="Users" />
+    <NavigationProperty Name="Users3" Relationship="Self.FK_ActivityTimeRate_Users3" FromRole="ActivityTimeRate" ToRole="Users" />
+    <NavigationProperty Name="Users4" Relationship="Self.FK_ActivityTimeRate_Users4" FromRole="ActivityTimeRate" ToRole="Users" />
+    <NavigationProperty Name="Users5" Relationship="Self.FK_ActivityTimeRate_Users5" FromRole="ActivityTimeRate" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="NameCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="Self.FK_Event_City" FromRole="City" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="NameCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EngNameCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumCode" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Country" FromRole="Country" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Direction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="NameDirection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="Self.FK_Event_Direction" FromRole="Direction" ToRole="Event" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Direction" FromRole="Direction" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="IdEventName" Type="Int32" Nullable="false" />
+    <Property Name="IdDirectionEvent" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Days" Type="Int32" Nullable="false" />
+    <Property Name="IdCity" Type="Int32" Nullable="false" />
+    <Property Name="EventImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Event_City" FromRole="Event" ToRole="City" />
+    <NavigationProperty Name="Direction" Relationship="Self.FK_Event_Direction" FromRole="Event" ToRole="Direction" />
+    <NavigationProperty Name="EventName" Relationship="Self.FK_Event_EventName" FromRole="Event" ToRole="EventName" />
+  </EntityType>
+  <EntityType Name="EventName">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ActivityMain" Relationship="Self.FK_ActivityMain_EventName" FromRole="EventName" ToRole="ActivityMain" />
+    <NavigationProperty Name="Event" Relationship="Self.FK_Event_EventName" FromRole="EventName" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserEvent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="event" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserEvent" FromRole="UserEvent" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserGender">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="pol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserGender" FromRole="UserGender" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserRole" FromRole="UserRole" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Familiy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <Property Name="IdPol" Type="Int32" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthdayDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdCountry" Type="Int32" />
+    <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdDirection" Type="Int32" />
+    <Property Name="IdUserEvent" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhotoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityMain" Relationship="Self.FK_ActivityMain_Users" FromRole="Users" ToRole="ActivityMain" />
+    <NavigationProperty Name="ActivityTimeRate" Relationship="Self.FK_ActivityTimeRate_Users" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="ActivityTimeRate1" Relationship="Self.FK_ActivityTimeRate_Users1" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="ActivityTimeRate2" Relationship="Self.FK_ActivityTimeRate_Users2" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="ActivityTimeRate3" Relationship="Self.FK_ActivityTimeRate_Users3" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="ActivityTimeRate4" Relationship="Self.FK_ActivityTimeRate_Users4" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="ActivityTimeRate5" Relationship="Self.FK_ActivityTimeRate_Users5" FromRole="Users" ToRole="ActivityTimeRate" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Users_Country" FromRole="Users" ToRole="Country" />
+    <NavigationProperty Name="Direction" Relationship="Self.FK_Users_Direction" FromRole="Users" ToRole="Direction" />
+    <NavigationProperty Name="UserEvent" Relationship="Self.FK_Users_UserEvent" FromRole="Users" ToRole="UserEvent" />
+    <NavigationProperty Name="UserGender" Relationship="Self.FK_Users_UserGender" FromRole="Users" ToRole="UserGender" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK_Users_UserRole" FromRole="Users" ToRole="UserRole" />
+  </EntityType>
+  <Association Name="FK_ActivityMain_EventName">
+    <End Role="EventName" Type="Self.EventName" Multiplicity="1" />
+    <End Role="ActivityMain" Type="Self.ActivityMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventName">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityMain">
+        <PropertyRef Name="IdEventName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityMain_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ActivityMain" Type="Self.ActivityMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityMain">
+        <PropertyRef Name="IdWinner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_ActivityMain">
+    <End Role="ActivityMain" Type="Self.ActivityMain" Multiplicity="1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityMain">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdActivityMain" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_ActivityName">
+    <End Role="ActivityName" Type="Self.ActivityName" Multiplicity="1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityName">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdActivityName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdModer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdJury1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users2">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdJury2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users3">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdJury3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users4">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdJury4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityTimeRate_Users5">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ActivityTimeRate" Type="Self.ActivityTimeRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ActivityTimeRate">
+        <PropertyRef Name="IdJury5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Direction">
+    <End Role="Direction" Type="Self.Direction" Multiplicity="1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direction">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="IdDirectionEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Direction">
+    <End Role="Direction" Type="Self.Direction" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direction">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdDirection" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_EventName">
+    <End Role="EventName" Type="Self.EventName" Multiplicity="1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventName">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="IdEventName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserEvent">
+    <End Role="UserEvent" Type="Self.UserEvent" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserEvent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdUserEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserGender">
+    <End Role="UserGender" Type="Self.UserGender" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGender">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdPol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="User1212Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityMain" EntityType="Self.ActivityMain" />
+    <EntitySet Name="ActivityName" EntityType="Self.ActivityName" />
+    <EntitySet Name="ActivityTimeRate" EntityType="Self.ActivityTimeRate" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="Direction" EntityType="Self.Direction" />
+    <EntitySet Name="Event" EntityType="Self.Event" />
+    <EntitySet Name="EventName" EntityType="Self.EventName" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="UserEvent" EntityType="Self.UserEvent" />
+    <EntitySet Name="UserGender" EntityType="Self.UserGender" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_ActivityMain_EventName" Association="Self.FK_ActivityMain_EventName">
+      <End Role="EventName" EntitySet="EventName" />
+      <End Role="ActivityMain" EntitySet="ActivityMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityMain_Users" Association="Self.FK_ActivityMain_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityMain" EntitySet="ActivityMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_ActivityMain" Association="Self.FK_ActivityTimeRate_ActivityMain">
+      <End Role="ActivityMain" EntitySet="ActivityMain" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_ActivityName" Association="Self.FK_ActivityTimeRate_ActivityName">
+      <End Role="ActivityName" EntitySet="ActivityName" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users" Association="Self.FK_ActivityTimeRate_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users1" Association="Self.FK_ActivityTimeRate_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users2" Association="Self.FK_ActivityTimeRate_Users2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users3" Association="Self.FK_ActivityTimeRate_Users3">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users4" Association="Self.FK_ActivityTimeRate_Users4">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityTimeRate_Users5" Association="Self.FK_ActivityTimeRate_Users5">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ActivityTimeRate" EntitySet="ActivityTimeRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_City" Association="Self.FK_Event_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Country" Association="Self.FK_Users_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Direction" Association="Self.FK_Event_Direction">
+      <End Role="Direction" EntitySet="Direction" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Direction" Association="Self.FK_Users_Direction">
+      <End Role="Direction" EntitySet="Direction" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_EventName" Association="Self.FK_Event_EventName">
+      <End Role="EventName" EntitySet="EventName" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserEvent" Association="Self.FK_Users_UserEvent">
+      <End Role="UserEvent" EntitySet="UserEvent" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserGender" Association="Self.FK_Users_UserGender">
+      <End Role="UserGender" EntitySet="UserGender" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRole" Association="Self.FK_Users_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище User1212ModelContainer" CdmEntityContainer="User1212Entities">
+    <EntitySetMapping Name="ActivityMain">
+      <EntityTypeMapping TypeName="User1212Model.ActivityMain">
+        <MappingFragment StoreEntitySet="ActivityMain">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IdEventName" ColumnName="IdEventName" />
+          <ScalarProperty Name="IdWinner" ColumnName="IdWinner" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="CountOfDay" ColumnName="CountOfDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityName">
+      <EntityTypeMapping TypeName="User1212Model.ActivityName">
+        <MappingFragment StoreEntitySet="ActivityName">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NameActivity" ColumnName="NameActivity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityTimeRate">
+      <EntityTypeMapping TypeName="User1212Model.ActivityTimeRate">
+        <MappingFragment StoreEntitySet="ActivityTimeRate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IdActivityMain" ColumnName="IdActivityMain" />
+          <ScalarProperty Name="IdActivityName" ColumnName="IdActivityName" />
+          <ScalarProperty Name="IdModer" ColumnName="IdModer" />
+          <ScalarProperty Name="IdJury1" ColumnName="IdJury1" />
+          <ScalarProperty Name="IdJury2" ColumnName="IdJury2" />
+          <ScalarProperty Name="IdJury3" ColumnName="IdJury3" />
+          <ScalarProperty Name="IdJury4" ColumnName="IdJury4" />
+          <ScalarProperty Name="IdJury5" ColumnName="IdJury5" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="NumOfDay" ColumnName="NumOfDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="User1212Model.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="User1212Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+          <ScalarProperty Name="EngNameCountry" ColumnName="EngNameCountry" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="NumCode" ColumnName="NumCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direction">
+      <EntityTypeMapping TypeName="User1212Model.Direction">
+        <MappingFragment StoreEntitySet="Direction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NameDirection" ColumnName="NameDirection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="User1212Model.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IdEventName" ColumnName="IdEventName" />
+          <ScalarProperty Name="IdDirectionEvent" ColumnName="IdDirectionEvent" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventName">
+      <EntityTypeMapping TypeName="User1212Model.EventName">
+        <MappingFragment StoreEntitySet="EventName">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="User1212Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserEvent">
+      <EntityTypeMapping TypeName="User1212Model.UserEvent">
+        <MappingFragment StoreEntitySet="UserEvent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="event" ColumnName="event" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGender">
+      <EntityTypeMapping TypeName="User1212Model.UserGender">
+        <MappingFragment StoreEntitySet="UserGender">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pol" ColumnName="pol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="User1212Model.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="User1212Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Familiy" ColumnName="Familiy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdPol" ColumnName="IdPol" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+          <ScalarProperty Name="IdDirection" ColumnName="IdDirection" />
+          <ScalarProperty Name="IdUserEvent" ColumnName="IdUserEvent" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
