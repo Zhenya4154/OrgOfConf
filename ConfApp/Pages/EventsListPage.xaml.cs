@@ -24,20 +24,53 @@ namespace ConfApp.Pages
         {
             InitializeComponent();
             Init();
+            Update();
+            myDatePicker.SelectedDate = DateTime.Now;
         }
         public void Init()
         {
-            EventListView.ItemsSource = Data.User1212Entities.GetContext().Event.ToList();
+            try
+            {
+                EventListView.ItemsSource = Data.User1212Entities.GetContext().Event.ToList();
+            }
+            catch
+            {
+
+            }
+        }
+
+        public List<Data.Event> _events = Data.User1212Entities.GetContext().Event.ToList();
+
+        public void Update()
+        {
+            try
+            {
+                _events = Data.User1212Entities.GetContext().Event.ToList();
+
+                if (!string.IsNullOrEmpty(SearchEventTextBox.Text))
+                {
+                    _events = (from item in Data.User1212Entities.GetContext().Event.ToList()
+                                 where item.EventName.Name.ToLower().Contains(SearchEventTextBox.Text.ToLower()) ||
+                                 item.Direction.NameDirection.ToLower().Contains(SearchEventTextBox.Text.ToLower())
+                                 select item).ToList();
+                }
+
+                EventListView.ItemsSource = _events;
+            }
+            catch
+            {
+
+            }
         }
 
         private void SearchEventTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Update();
         }
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var date = Convert.ToDateTime(myDatePicker.SelectedDate).ToShortDateString;
         }
 
         private void AuthorizationButton_Click(object sender, RoutedEventArgs e)

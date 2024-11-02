@@ -112,9 +112,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\UserEvent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

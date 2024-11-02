@@ -97,16 +97,6 @@
     <NavigationProperty Name="ActivityMain" Relationship="Self.FK_ActivityMain_EventName" FromRole="EventName" ToRole="ActivityMain" />
     <NavigationProperty Name="Event" Relationship="Self.FK_Event_EventName" FromRole="EventName" ToRole="Event" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="UserEvent">
     <Key>
       <PropertyRef Name="id" />
@@ -388,7 +378,6 @@
     <EntitySet Name="Direction" EntityType="Self.Direction" />
     <EntitySet Name="Event" EntityType="Self.Event" />
     <EntitySet Name="EventName" EntityType="Self.EventName" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="UserEvent" EntityType="Self.UserEvent" />
     <EntitySet Name="UserGender" EntityType="Self.UserGender" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" />

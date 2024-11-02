@@ -21,7 +21,8 @@
                      Margin="10,0,0,0"
                      VerticalContentAlignment="Center"
                      HorizontalContentAlignment="Center"></TextBox>
-            <DatePicker HorizontalAlignment="Left"
+            <DatePicker x:Name="myDatePicker"
+                HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="200,0,0,0"
                         HorizontalContentAlignment="Center"

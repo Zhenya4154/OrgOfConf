@@ -12,7 +12,8 @@ namespace ConfApp.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Security.Cryptography.X509Certificates;
+
     public partial class User1212Entities : DbContext
     {
         private static User1212Entities _context;
@@ -20,16 +21,15 @@ namespace ConfApp.Data
             : base("name=User1212Entities")
         {
         }
-
         public static User1212Entities GetContext()
         {
-            if (_context == null)
+            if(_context == null)
             {
                 _context = new User1212Entities();
             }
             return _context;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -43,7 +43,6 @@ namespace ConfApp.Data
         public virtual DbSet<Direction> Direction { get; set; }
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<EventName> EventName { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UserEvent> UserEvent { get; set; }
         public virtual DbSet<UserGender> UserGender { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
